@@ -28,22 +28,25 @@ public class Main {
 			
 			}
 			int totalchanges = 0;
-			for(int i =1; i < value.length;i--) {
-					
-					
+			for(int i =1; i < value.length;i++) {
+						
 					int changes = 0;
 					
-					for(int j = 0; j < value.length - i ; j++ ) {
+					for(int j = 0; j < (value.length-i) ; j++ ) {
 				
-						if(value[j]>value[i+1]) {
+						if(value[j]>value[j+1]) {
 						
 							double temp = value[j];
 							value[j] = value[j+1];
 							value[j+1] = temp;
 							changes+=1;
-						}
-					totalchanges+= changes;	
+							
+							}
+					System.out.println(changes);
+					totalchanges+= changes;
+					
 					}
+					System.out.println(totalchanges);
 			}
 		}	
 	}
