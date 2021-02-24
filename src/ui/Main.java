@@ -11,17 +11,20 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line = br.readLine();
 		
-		int quantity = Integer.parseInt(br.readLine());
+		int quantity = Integer.parseInt(line);
+		int amount = 0;
 		
-		while((line != null)) {
+		while((line != null)&& (quantity >= amount)) {
 		
-			for(int i =0; i < quantity;i++) {
 		
-			String textValue = br.readLine();
-			
-			
-			
-			}	
+		
+			String lineValue = br.readLine();
+			String [] textValue = lineValue.split(" ");	
+			for(int i=0; i < textValue.length;i++) { 
+				
+				
+			amount+=1;
+			}
 		}	
 	}
 
