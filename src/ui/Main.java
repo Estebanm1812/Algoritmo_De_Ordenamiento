@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 public class Main {
 
 	public static void main(String[] args) throws IOException {
@@ -28,12 +30,14 @@ public class Main {
 			
 			}
 			int totalchanges = 0;
+			double timesThatGoesIn = 0;
 			for(int i =1; i < value.length;i++) {
 						
 					int changes = 0;
-					
+					timesThatGoesIn+=1;
 					for(int j = 0; j < (value.length-i) ; j++ ) {
-				
+						
+						
 						if(value[j]>value[j+1]) {
 						
 							double temp = value[j];
@@ -42,13 +46,26 @@ public class Main {
 							changes+=1;
 							
 							}
-					System.out.println(changes);
-					totalchanges+= changes;
+					
+					
 					
 					}
-					System.out.println(totalchanges);
+					totalchanges+= changes;
+					
 			}
-		}	
-	}
+			String valueToPrint = "";
+			for(int i=0; i < textValue.length;i++) { 
+				
+				valueToPrint += value[i] + " ";
+			
+				
+			
+			}
+			double average = (totalchanges/timesThatGoesIn);
+			System.out.println(average + " " + valueToPrint);
+			totalchanges = 0;
+			
+			}
 
+	}
 }
