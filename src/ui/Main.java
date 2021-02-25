@@ -5,14 +5,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 
 public class Main {
-
-	private static DecimalFormat df = new DecimalFormat("0.00");
+	
+	
+	private static DecimalFormat df;
+	private static DecimalFormatSymbols dfs;
 	
 	public static void main(String[] args) throws IOException {
 		
+	
+		dfs = new DecimalFormatSymbols(Locale.getDefault());
+		dfs.setDecimalSeparator('.');
+		df = new DecimalFormat("0.00",dfs);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line = br.readLine();
 		
@@ -66,12 +74,13 @@ public class Main {
 			}
 			double average = (totalchanges/timesThatGoesIn);
 			df.setRoundingMode(RoundingMode.DOWN);
+			
 			String averageTxT = df.format(average);
-			System.out.println(averageTxT + "-" + valueToPrint);
+			System.out.println(averageTxT + "-" + valueToPrint.trim());
 			totalchanges = 0;
 			amount+=1;
 			}
-		System.out.println("ciao");
+
 		br.close();
 		
 		System.exit(0);
