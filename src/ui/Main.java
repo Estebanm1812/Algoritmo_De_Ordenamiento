@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
 public class Main {
 
@@ -66,6 +65,7 @@ public class Main {
 			totalchanges = 0;
 			
 			}
-
+		br.close();
+		System.exit(0);
 	}
 }
