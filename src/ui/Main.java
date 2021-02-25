@@ -3,10 +3,14 @@ package ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 
 public class Main {
 
+	private static DecimalFormat df = new DecimalFormat("0.00");
+	
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,8 +18,8 @@ public class Main {
 		
 		int quantity = Integer.parseInt(line);
 		int amount = 0;
-		
-		while((line != null)&& (quantity >= amount)) {
+		System.out.println("");
+		while((line != null)&& (quantity > amount)) {
 		
 		
 		
@@ -61,11 +65,16 @@ public class Main {
 			
 			}
 			double average = (totalchanges/timesThatGoesIn);
-			System.out.println(average + " " + valueToPrint);
+			df.setRoundingMode(RoundingMode.DOWN);
+			String averageTxT = df.format(average);
+			System.out.println(averageTxT + "-" + valueToPrint);
 			totalchanges = 0;
-			
+			amount+=1;
 			}
+		System.out.println("ciao");
 		br.close();
+		
 		System.exit(0);
+		
 	}
 }
